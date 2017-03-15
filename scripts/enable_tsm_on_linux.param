@@ -1,0 +1,47 @@
+#-----------------------------------------------------------------------------------------#
+# (C) COPYRIGHT IBM Global Services,  2015                                                #
+# Unpublished Work                                                                        #
+# All Rights Reserved                                                                     #
+# Licensed Material - Property of IBM                                                     #
+#-----------------------------------------------------------------------------------------#
+#              Global System Management Architecture TSM automation                       #
+#-----------------------------------------------------------------------------------------#
+#  File      : enable_tsm_on_linux.param                                                    #
+#  Project   : Tivoli Storage Manager Client Installation and Configuration Automation    #
+#  Author    : Scott Neibarger                                                            #
+#  Date      :                                                                            #
+#                                                                                         #
+#-----------------------------------------------------------------------------------------#
+#  FILE DESCRIPTION                                                                       #
+#-----------------------------------------------------------------------------------------#
+#
+#FTPDETAILS configuration item
+FTPDETAILS;ftp;public.dhe.ibm.com;anonymous;anonymous;storage/tivoli-storage-management/patches/client;v7r1/Linux/LinuxX86/BA/v716;7.1.6.4-TIV-TSMBAC-LinuxX86.tar;1
+#
+#TSMSERVER configuration item
+TSMSERVER;SELECTTEST.BAASTEST.COM;1500;tcpip;sauser;STANDARD;INCR_0900;1024
+#TSMSERVER;169.47.193.14;1500;tcp;sauser;STANDARD;INCR_0900;1024
+#TSMSERVER;SELECTTEST.BAASTEST.COM;1500;tcpip;SELECTTEST.BAASTEST.COM;PDC_POLICY;TSAWEB_DAILY;100000
+#
+#RPMLIST configuration item (linux only)
+RPMLIST;gskcrypt64-8.0.50.66.linux.x86_64.rpm;gskssl64-8.0.50.66.linux.x86_64.rpm;TIVsm-API64.x86_64.rpm;TIVsm-BA.x86_64.rpm;;7160;7160
+#
+# SCHEDDETAILS configuration item
+# start time (hh:mm::ss); strict window match (must be yes or no); leeway before; leeway after
+#
+# EXCLUDEFS configuration item
+# semi-colon list of file system exclusions -- cannot contain wildcards
+#
+# EXCLUDEDIR configuration item
+# semi-colon list of directory exclusions -- cannot contain wildcards
+#
+# EXCLUDE configuration item
+# semi-colon list of files -- can contain wildcards
+#
+# CONTACT configuration item
+# Passed to the register node command
+SCHEDDETAILS;09:00:00;no;2;2
+EXCLUDEFS;/proc;/tmp
+EXCLUDEDIR;/opt/Tivoli/lcf/
+EXCLUDE;/nmon_perfdata/data/*;/opt/Tivoli/.../logs/*;/opt/Tivoli/ux/hist/*;/var/ibm/tivoli/.../logs/.../*.log;/usr/loca/log/*;/usr/maestro/stdlist/logs/*;/var/spool/mqueue/*
+CONTACT=npariath@in.ibm.com
